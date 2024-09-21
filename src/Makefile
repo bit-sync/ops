@@ -2,6 +2,7 @@ all: tmp main
 
 tmp:
 	@mkdir cache
+	@echo done
 
 main: main.o
 	@cc cache/main.o -o ops # Runs third
