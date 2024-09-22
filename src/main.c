@@ -21,12 +21,10 @@ int main(int argc, char *argv[]) {
         return usage(argc, argv);
     }
     
-    if (argc == 2 && strcmp(argv[1], "-c") == 0) {
+    if (argc == 3 && strcmp(argv[1], "-c") == 0) {
         char pkg_name[25];
+        strcpy(pkg_name, argv[2]); // Correctly copy the package name from argv[2]
         char pkg_command[320];
-        printf("Package creation wizard\n");
-        printf("Input package name:\n");
-        scanf("%s", pkg_name);
         sprintf(pkg_command, "mkdir %s && cd %s && wget https://raw.githubusercontent.com/bit-sync/ops/refs/heads/main/pkgs/INSTALL.sh && wget https://raw.githubusercontent.com/bit-sync/ops/refs/heads/main/pkgs/example.txt && wget https://raw.githubusercontent.com/bit-sync/ops/refs/heads/main/pkgs/Makefile", pkg_name, pkg_name);
         system(pkg_command);
         printf("Package %s created successfully.\n", pkg_name);
@@ -41,10 +39,10 @@ int main(int argc, char *argv[]) {
             return usage(argc, argv);
         }
 
-        strcpy(removed_path, argv[2]); // Use argv[2], not argv[3]
+        strcpy(removed_path, argv[2]); // Correctly copy the package path from argv[2]
         remove_last_4_chars(removed_path); // Pass the full string, not a character
         
-        sprintf(pkg_install_cmd, "tar -xf %s && bash INSTALL.sh && rm -rf %s", argv[2], removed_path);
+        sprintf(pkg_install_cmd, "tar -xf %s && bash %s/INSTALL.sh && rm -rf %s", argv[2], removed_path, removed_path);
         system(pkg_install_cmd);
     } 
 }

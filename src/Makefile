@@ -17,3 +17,8 @@ clean:
 	@rm -rf cache
 	@rm -r ops
 	@echo done
+
+install:
+	@echo installing
+	@make
+	@mv ops /usr/bin
