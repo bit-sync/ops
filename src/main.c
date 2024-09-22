@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
         printf("Package creation wizard\n");
         printf("Input package name:\n");
         scanf("%s", pkg_name);
-        sprintf(pkg_command, "mkdir %s && cd %s && wget https://raw.githubusercontent.com/bit-sync/ops/refs/heads/main/pkgs/INSTALL.sh && wget https://raw.githubusercontent.com/bit-sync/ops/refs/heads/main/pkgs/example.txt && wget https://raw.githubusercontent.com/bit-sync/ops/refs/heads/main/pkgs/Makefile", pkg_name, pkg_name);
+        sprintf(pkg_command, "mkdir %s && cd %s && wget https://raw.githubusercontent.com/bit-sync/ops/refs/heads/main/pkgs/Makefile", pkg_name, pkg_name);
         system(pkg_command);
         printf("Package %s created successfully.\n", pkg_name);
     }
