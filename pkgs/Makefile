@@ -6,7 +6,7 @@ build: opf_gen
 
 opf_gen:
 	@tar -cvf pkg.op *
-	@echo "pkg.op is your package file (you can change the name of it if you want)"
+	@echo "pkg.op is your package file | you can change the name of it if you want"
 
 
 
